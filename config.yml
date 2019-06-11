@@ -1,7 +1,13 @@
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
 language: en
-pipeline: supervised_embeddings
+pipeline:
+  - name: WhitespaceTokenizer         #defines how unstructured sentences will be tokenized
+  - name: CRFEntityExtractor          #defines the model which will be used for entity extraction
+  - name: CountVectorsFeaturizer      #creates sentence representation
+  - name: EmbeddingIntentClassifier   #defines a classifier for intent classification
+    intent_tokenization_flag: true    #sets the flag for intent label tokenization
+    intent_split_symbol: "+"          #defines the character on which intent labels should be tokenized
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

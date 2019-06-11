@@ -1,31 +1,54 @@
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
+- greet
+- goodbye
+- paper_search
+- inform
+- affirm
+- affirm+authors
+- authors
+- thanks
+- deny
+- send_link
+
+slots:
+  paper_type:
+    type: text
+  link:
+    type: text
+  authors:
+    type: text
+    
+entities:
+- paper_type
 
 actions:
 - utter_greet
-- utter_cheer_up
-- utter_did_that_help
-- utter_happy
 - utter_goodbye
+- utter_send_link
+- utter_what_type
+- utter_happy_reading
+- utter_authors
+- utter_approve
+- action_paper_search
 
 templates:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great carry on!"
+  - text: "Hey! I am paper search assistant. How can I help"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Have a great day!"
+
+  utter_send_link:
+  - text: "Here is a link: {link}"
+  
+  utter_what_type:
+  - text: "What type of paper would you like me to find?"
+  
+  utter_happy_reading:
+  - text: "Enjoy your reading."
+  
+  utter_approve:
+  - text: "Would you like to read this paper? I can send you a link."
+  
+  utter_authors:
+  - text: "Here is a list of authors: {authors}."
